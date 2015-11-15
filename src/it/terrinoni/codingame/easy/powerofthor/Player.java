@@ -24,8 +24,6 @@
 package it.terrinoni.codingame.easy.powerofthor;
 
 import java.util.*;
-//import java.io.*;
-//import java.math.*;
 
 /**
  * Thor's hammer, Mjöllnir has lost all of its powers... Will you be able to guide Thor towards the
@@ -35,7 +33,7 @@ import java.util.*;
  *
  * This easy puzzle is the first of a series of two proposed during the past contest “Ragnarök”.
  * Once the hammer is re-activated, go to the next puzzle to try and defeat the giants in the “Thor
- * VS Giants”. Much harder !
+ * VS Giants”. Much harder!
  *
  * @author Marco Terrinoni
  */

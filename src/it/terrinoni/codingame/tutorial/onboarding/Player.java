@@ -24,8 +24,6 @@
 package it.terrinoni.codingame.tutorial.onboarding;
 
 import java.util.*;
-//import java.io.*;
-//import java.math.*;
 
 /**
  * A tutorial mission for newcomers. Defend the planet with a big laser cannon from the invading
