@@ -37,77 +37,49 @@ class Player {
         Scanner in = new Scanner(System.in);
         int laps = in.nextInt();
         int checkpointCount = in.nextInt();
-        Point[] coords = new Point[checkpointCount];
+        int[] coordX = new int[checkpointCount];
+        int[] coordY = new int[checkpointCount];
         for (int i = 0; i < checkpointCount; i++) {
-            int x = in.nextInt();
-            int y = in.nextInt();
-            coords[i] = new Point(x, y);
+            int checkpointX = in.nextInt();
+            int checkpointY = in.nextInt();
+            coordX[i] = checkpointX;
+            coordY[i] = checkpointY;
         }
 
         // game loop
         while (true) {
-            Point currPos1 = null;
-            Point currPos2 = null;
-            Point currPos = null;
-            int distance1 = 0;
-            int distance2 = 0;
-            int distance = 0;
             for (int i = 0; i < 2; i++) {
-                // Extract current position
                 int x = in.nextInt();
                 int y = in.nextInt();
-//                if(i == 0) {
-//                    currPos1 = new Point(x, y);
-//                } else {
-//                    currPos2 = new Point(x, y);
-//                }
-                currPos = new Point(x, y);
-                // Extract current velocity (not used)
                 int vx = in.nextInt();
                 int vy = in.nextInt();
-                // Extract current angle (not used)
                 int angle = in.nextInt();
-                // Extract distance from next check point
                 int nextCheckPointId = in.nextInt();
-                Point nextCheck = coords[nextCheckPointId];
-                int speed = 0;
-//                if(i == 0) {
-//                    distance1 = Point.getDistance(currPos1, nextCheck);
-//                    if(distance1 <= 800) {
-//                        speed = 0;
-//                    } else if(distance1 > 800 && distance1 < 5000) {
-//                        speed = distance1 % 200;
-//                    } else {
-//                        speed = 200;
-//                    }
-//                } else {
-//                    distance2 = Point.getDistance(currPos2, nextCheck);
-//                }
-                distance = Point.getDistance(currPos, nextCheck);
-                if(distance <= 800) {
-                    speed = 0;
-                } else if (distance > 800 && distance < 5000) {
-                    speed = distance % 200;
+                int currCheckX = coordX[nextCheckPointId];
+                int currCheckY = coordY[nextCheckPointId];
+                int distance = (int) Math.sqrt(Math.pow((x - currCheckX), 2) + Math.pow((y
+                        - currCheckY), 2));
+                int speed = 100;
+                if (distance < 700) {
+                    //System.out.println(currCheckX + " " + currCheckY + " SHIELD");
+                    System.out.println(currCheckX + " " + currCheckY + " 50");
                 } else {
-                    speed = 200;
+                    System.out.println(currCheckX + " " + currCheckY + " " + speed);
                 }
-                System.out.println(nextCheck.x + " " + nextCheck.y + " " + speed);
-            }
-            
 
+            }
             for (int i = 0; i < 2; i++) {
                 int x = in.nextInt();
                 int y = in.nextInt();
                 int vx = in.nextInt();
                 int vy = in.nextInt();
-                int enemyAngle = in.nextInt();
-                int enemyNextCheckPointId = in.nextInt();
+                int angle = in.nextInt();
+                int nextCheckPointId = in.nextInt();
             }
 
             // Write an action using System.out.println()
             // To debug: System.err.println("Debug messages...");
         }
-
     }
 }
 
